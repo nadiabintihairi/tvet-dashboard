@@ -237,6 +237,28 @@ tbody tr:hover{background:#f0f6ff}
 /* Footer */
 .page-footer{text-align:center;font-size:11px;color:#57606a;border-top:1px solid #e5e7eb;padding-top:14px;margin-top:8px}
 
+/* Infografik */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px}
+.info-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:20px}
+.donut-wrap{display:flex;align-items:center;gap:22px}
+.donut-legend{display:flex;flex-direction:column;gap:9px;flex:1}
+.donut-legend-item{display:flex;align-items:center;gap:8px;font-size:12px}
+.donut-legend-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.donut-legend-label{color:#57606a;flex:1}
+.donut-legend-val{font-weight:700;color:#1f2328}
+.gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px}
+.gauge-val{font-size:28px;font-weight:800;color:#1f2328;margin-top:6px}
+.gauge-label{font-size:12px;color:#57606a;margin-top:2px}
+.hbar-row{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.hbar-row:last-child{margin-bottom:0}
+.hbar-label{font-size:12px;color:#57606a;width:100px;flex-shrink:0;text-align:right}
+.hbar-track{flex:1;background:#f0f2f5;border-radius:4px;height:10px;overflow:hidden}
+.hbar-fill{height:100%;border-radius:4px;transition:width .5s ease}
+.hbar-val{font-size:12px;font-weight:700;color:#1f2328;width:34px;text-align:right;flex-shrink:0}
+.infobadge{display:flex;align-items:center;justify-content:center;gap:5px;padding:5px 10px;border-radius:20px;font-size:11px;font-weight:700;margin-top:8px;width:fit-content}
+.infobadge-green{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}
+.infobadge-blue{background:#eff6ff;color:#3b82d4;border:1px solid #bfdbfe}
+
 /* Responsive */
 @media(max-width:900px){
   .sidebar{width:52px}
@@ -558,6 +580,237 @@ tbody tr:hover{background:#f0f6ff}
       </svg>
     </div>
   </div>
+  <!-- ── INFOGRAFIK ROW 1: Donut Status + Horizontal Bar Markah ── -->
+  <div class="section-label">Infografik Prestasi</div>
+  <div class="info-grid">
+
+    <!-- Donut: Status Pelajar -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-icon icon-green"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#16a34a" stroke-width="1.5"/><path d="M5 8l2 2 4-4" stroke="#16a34a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="card-title">Status Pelajar</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="donut-wrap">
+          <!-- SVG Donut: Lulus 178 (89%), Bersyarat 15 (7.5%), Gagal 7 (3.5%) -->
+          <!-- circumference = 2π×52 ≈ 326.7 -->
+          <!-- Lulus: 326.7×0.89=290.8, Bersyarat: 326.7×0.075=24.5, Gagal: 326.7×0.035=11.4 -->
+          <svg width="130" height="130" viewBox="0 0 130 130">
+            <!-- background ring -->
+            <circle cx="65" cy="65" r="52" fill="none" stroke="#f0f2f5" stroke-width="16"/>
+            <!-- Lulus (green) — starts at -90deg (top), 89% -->
+            <circle cx="65" cy="65" r="52" fill="none" stroke="#16a34a" stroke-width="16"
+              stroke-dasharray="290.8 326.7" stroke-dashoffset="81.7"
+              stroke-linecap="butt" transform="rotate(-90 65 65)"/>
+            <!-- Bersyarat (orange) -->
+            <circle cx="65" cy="65" r="52" fill="none" stroke="#d97706" stroke-width="16"
+              stroke-dasharray="24.5 326.7" stroke-dashoffset="-209.1"
+              stroke-linecap="butt" transform="rotate(-90 65 65)"/>
+            <!-- Gagal (red) -->
+            <circle cx="65" cy="65" r="52" fill="none" stroke="#dc2626" stroke-width="16"
+              stroke-dasharray="11.4 326.7" stroke-dashoffset="-233.6"
+              stroke-linecap="butt" transform="rotate(-90 65 65)"/>
+            <!-- Centre text -->
+            <text x="65" y="60" text-anchor="middle" font-size="20" font-weight="800" fill="#1f2328">89%</text>
+            <text x="65" y="75" text-anchor="middle" font-size="10" fill="#57606a">Kadar Lulus</text>
+          </svg>
+          <div class="donut-legend">
+            <div class="donut-legend-item">
+              <div class="donut-legend-dot" style="background:#16a34a"></div>
+              <span class="donut-legend-label">Lulus</span>
+              <span class="donut-legend-val">178</span>
+            </div>
+            <div class="donut-legend-item">
+              <div class="donut-legend-dot" style="background:#d97706"></div>
+              <span class="donut-legend-label">Bersyarat</span>
+              <span class="donut-legend-val">15</span>
+            </div>
+            <div class="donut-legend-item">
+              <div class="donut-legend-dot" style="background:#dc2626"></div>
+              <span class="donut-legend-label">Gagal</span>
+              <span class="donut-legend-val">7</span>
+            </div>
+            <div class="donut-legend-item">
+              <div class="donut-legend-dot" style="background:#e5e7eb"></div>
+              <span class="donut-legend-label">Jumlah</span>
+              <span class="donut-legend-val">200</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horizontal Bar: Purata Markah Mengikut Program -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-icon icon-blue"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="5" width="8" height="2.5" rx="1" fill="#3b82d4"/><rect x="2" y="9" width="11" height="2.5" rx="1" fill="#3b82d4" opacity=".6"/><rect x="2" y="1" width="6" height="2.5" rx="1" fill="#3b82d4" opacity=".4"/></svg></div>
+          <div class="card-title">Purata Markah Mengikut Program</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="hbar-row">
+          <div class="hbar-label">Diploma IT</div>
+          <div class="hbar-track"><div class="hbar-fill" style="width:76%;background:#3b82d4"></div></div>
+          <div class="hbar-val">76</div>
+        </div>
+        <div class="hbar-row">
+          <div class="hbar-label">Networking</div>
+          <div class="hbar-track"><div class="hbar-fill" style="width:72%;background:#16a34a"></div></div>
+          <div class="hbar-val">72</div>
+        </div>
+        <div class="hbar-row">
+          <div class="hbar-label">Multimedia</div>
+          <div class="hbar-track"><div class="hbar-fill" style="width:69%;background:#7c5cd8"></div></div>
+          <div class="hbar-val">69</div>
+        </div>
+        <div class="hbar-row">
+          <div class="hbar-label">Software Eng</div>
+          <div class="hbar-track"><div class="hbar-fill" style="width:74%;background:#d97706"></div></div>
+          <div class="hbar-val">74</div>
+        </div>
+        <div class="hbar-row">
+          <div class="hbar-label">Cybersecurity</div>
+          <div class="hbar-track"><div class="hbar-fill" style="width:71%;background:#dc2626"></div></div>
+          <div class="hbar-val">71</div>
+        </div>
+        <div style="margin-top:12px;padding-top:10px;border-top:1px solid #f0f2f5;display:flex;align-items:center;justify-content:space-between">
+          <span style="font-size:11px;color:#57606a">Purata keseluruhan</span>
+          <span style="font-size:14px;font-weight:700;color:#3b82d4">72.4 / 100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INFOGRAFIK ROW 2: Gauge Kehadiran + Trend CGPA + Pecahan Gred ── -->
+  <div class="info-grid-3">
+
+    <!-- Semicircle Gauge: Kadar Kehadiran -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-icon icon-violet"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#7c5cd8" stroke-width="1.5"/><path d="M8 5v3.5l2 1.5" stroke="#7c5cd8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="card-title">Kadar Kehadiran Workshop</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="gauge-wrap">
+          <!-- Semicircle gauge: 85% kehadiran -->
+          <!-- half-circle r=52, circumference=326.7, half=163.4 -->
+          <!-- fill = 163.4 * 0.85 = 138.9 -->
+          <svg width="140" height="80" viewBox="0 0 140 80">
+            <!-- track -->
+            <path d="M14 70 A56 56 0 0 1 126 70" fill="none" stroke="#f0f2f5" stroke-width="14" stroke-linecap="round"/>
+            <!-- fill (85%) — arc length proportional -->
+            <path d="M14 70 A56 56 0 0 1 126 70" fill="none" stroke="#7c5cd8" stroke-width="14" stroke-linecap="round"
+              stroke-dasharray="148.5 175.9" stroke-dashoffset="0"/>
+            <!-- threshold line at 80% -->
+            <line x1="22" y1="56" x2="28" y2="48" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3 2"/>
+            <text x="70" y="58" text-anchor="middle" font-size="22" font-weight="800" fill="#1f2328">85%</text>
+            <text x="70" y="72" text-anchor="middle" font-size="9" fill="#57606a">daripada 200 pelajar</text>
+            <text x="16" y="80" font-size="8" fill="#57606a">0%</text>
+            <text x="118" y="80" font-size="8" fill="#57606a" text-anchor="end">100%</text>
+          </svg>
+          <div class="infobadge infobadge-green">✓ Memenuhi syarat minimum 80%</div>
+          <div style="display:flex;gap:14px;margin-top:10px;font-size:11px">
+            <div><span style="color:#57606a">Hadir penuh</span><br><span style="font-weight:700;color:#16a34a">142 pelajar</span></div>
+            <div><span style="color:#57606a">Perlu perhatian</span><br><span style="font-weight:700;color:#d97706">38 pelajar</span></div>
+            <div><span style="color:#57606a">Tidak layak</span><br><span style="font-weight:700;color:#dc2626">20 pelajar</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spark Line: Trend CGPA 5 Semester -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-icon icon-blue"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polyline points="2,12 5,8 8,10 11,5 14,4" stroke="#3b82d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+          <div class="card-title">Trend CGPA — 5 Semester</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <svg width="100%" viewBox="0 0 260 120" preserveAspectRatio="xMidYMid meet">
+          <!-- grid -->
+          <line x1="30" y1="10" x2="250" y2="10" stroke="#f0f2f5" stroke-width="1"/>
+          <line x1="30" y1="35" x2="250" y2="35" stroke="#f0f2f5" stroke-width="1"/>
+          <line x1="30" y1="60" x2="250" y2="60" stroke="#f0f2f5" stroke-width="1"/>
+          <line x1="30" y1="85" x2="250" y2="85" stroke="#f0f2f5" stroke-width="1"/>
+          <!-- y-axis labels -->
+          <text x="26" y="13" font-size="8" fill="#57606a" text-anchor="end">4.0</text>
+          <text x="26" y="38" font-size="8" fill="#57606a" text-anchor="end">3.5</text>
+          <text x="26" y="63" font-size="8" fill="#57606a" text-anchor="end">3.0</text>
+          <text x="26" y="88" font-size="8" fill="#57606a" text-anchor="end">2.5</text>
+          <!-- area fill: pts=(55,85),(100,72),(145,65),(190,52),(235,42) -->
+          <polygon points="55,85 100,72 145,65 190,52 235,42 235,85" fill="#eff6ff" opacity=".7"/>
+          <!-- line -->
+          <polyline points="55,85 100,72 145,65 190,52 235,42" fill="none" stroke="#3b82d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- dots -->
+          <circle cx="55" cy="85" r="4" fill="#fff" stroke="#3b82d4" stroke-width="2"/>
+          <circle cx="100" cy="72" r="4" fill="#fff" stroke="#3b82d4" stroke-width="2"/>
+          <circle cx="145" cy="65" r="4" fill="#fff" stroke="#3b82d4" stroke-width="2"/>
+          <circle cx="190" cy="52" r="4" fill="#fff" stroke="#3b82d4" stroke-width="2"/>
+          <circle cx="235" cy="42" r="5" fill="#3b82d4" stroke="#fff" stroke-width="2"/>
+          <!-- value labels -->
+          <text x="55" y="80" font-size="8" fill="#57606a" text-anchor="middle">2.95</text>
+          <text x="100" y="67" font-size="8" fill="#57606a" text-anchor="middle">3.05</text>
+          <text x="145" y="60" font-size="8" fill="#57606a" text-anchor="middle">3.10</text>
+          <text x="190" y="47" font-size="8" fill="#57606a" text-anchor="middle">3.14</text>
+          <text x="235" y="37" font-size="8.5" fill="#3b82d4" text-anchor="middle" font-weight="700">3.18</text>
+          <!-- x-axis labels -->
+          <text x="55"  y="100" font-size="8" fill="#57606a" text-anchor="middle">S1'23</text>
+          <text x="100" y="100" font-size="8" fill="#57606a" text-anchor="middle">S2'23</text>
+          <text x="145" y="100" font-size="8" fill="#57606a" text-anchor="middle">S1'24</text>
+          <text x="190" y="100" font-size="8" fill="#57606a" text-anchor="middle">S2'24</text>
+          <text x="235" y="100" font-size="8" fill="#3b82d4" text-anchor="middle" font-weight="600">S2'25</text>
+          <!-- trend arrow label -->
+          <text x="235" y="112" font-size="7.5" fill="#16a34a" text-anchor="middle" font-weight="600">▲ +0.08</text>
+        </svg>
+        <div class="infobadge infobadge-blue" style="margin-left:auto;margin-right:auto">Trend CGPA meningkat 5 semester berturut-turut</div>
+      </div>
+    </div>
+
+    <!-- Pecahan Gred: stacked visual -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-header-left">
+          <div class="card-icon icon-orange"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="9" width="3" height="5" rx="1" fill="#d97706"/><rect x="6.5" y="6" width="3" height="8" rx="1" fill="#d97706" opacity=".7"/><rect x="11" y="3" width="3" height="11" rx="1" fill="#d97706" opacity=".4"/></svg></div>
+          <div class="card-title">Pecahan Gred Pelajar</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <!-- Stacked bar -->
+        <div style="margin-bottom:12px">
+          <div style="font-size:11px;color:#57606a;margin-bottom:5px">Taburan Gred (200 Pelajar)</div>
+          <div style="display:flex;border-radius:6px;overflow:hidden;height:22px">
+            <div style="width:12%;background:#16a34a" title="A+/A: 24"></div>
+            <div style="width:22%;background:#3b82d4" title="A-/B+: 44"></div>
+            <div style="width:27%;background:#7c5cd8" title="B/B-: 54"></div>
+            <div style="width:20%;background:#d97706" title="C+/C: 40"></div>
+            <div style="width:12%;background:#f97316" title="C-/D: 24"></div>
+            <div style="width:7%;background:#dc2626" title="F: 14"></div>
+          </div>
+        </div>
+        <!-- Legend + counts -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px 10px">
+          <div class="donut-legend-item"><div class="donut-legend-dot" style="background:#16a34a"></div><span class="donut-legend-label">A+/A</span><span class="donut-legend-val">24</span></div>
+          <div class="donut-legend-item"><div class="donut-legend-dot" style="background:#3b82d4"></div><span class="donut-legend-label">A-/B+</span><span class="donut-legend-val">44</span></div>
+          <div class="donut-legend-item"><div class="donut-legend-dot" style="background:#7c5cd8"></div><span class="donut-legend-label">B/B-</span><span class="donut-legend-val">54</span></div>
+          <div class="donut-legend-item"><div class="donut-legend-dot" style="background:#d97706"></div><span class="donut-legend-label">C+/C</span><span class="donut-legend-val">40</span></div>
+          <div class="donut-legend-item"><div class="donut-legend-dot" style="background:#f97316"></div><span class="donut-legend-label">C-/D</span><span class="donut-legend-val">24</span></div>
+          <div class="donut-legend-item"><div class="donut-legend-dot" style="background:#dc2626"></div><span class="donut-legend-label">F</span><span class="donut-legend-val">14</span></div>
+        </div>
+        <div style="margin-top:10px;padding-top:8px;border-top:1px solid #f0f2f5;font-size:11px;color:#57606a;display:flex;justify-content:space-between">
+          <span>Gred A &amp; ke atas</span>
+          <span style="font-weight:700;color:#16a34a">34% (68 pelajar)</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div><!-- /overview -->
 
 <!-- ═══ TAB: AKADEMIK ═══ -->
